@@ -11,12 +11,12 @@ Full documentation can be found on the Couchbase Developer Portal.
 <hr>
 
 ## UDF Examples
-We have two different types of UDFs in Couchbase, using Javascript for the Query service and using Python for the Analytics service. Here, we showcase the same UDF functionality for the two services.
+We have two different types of UDFs in Couchbase, using Javascript for the Query service and using Python for the Analytics service. Here, we showcase the same UDF functionality of calculating the distance between two GPS coordinates for the two services.
 <hr>
 
 ### Query Service UDF using Javascript
 
-Couchbase allows you to create User Defined Functions (UDF) with Javascript to include custom business logic inside your SQL++ queries while querying the data stored in Couchbase.
+Couchbase allows you to create User Defined Functions (UDF) with Javascript to include custom business logic inside your SQL++ queries while querying the data stored in Couchbase.  Here, we create a custom UDF that calculates the distance between two GPS coordinates using the [Haversine formula](https://en.wikipedia.org/wiki/Haversine_formula).
 
 #### Importing the UDF in Couchbase
 
@@ -67,6 +67,9 @@ Couchbase Analytics supports creating custom User Defined Functions using Python
 #### Install requirements
 
 - `$ pip install -r requirements.txt`
+    
+### UDF Code
+- The UDF code is [here](analytics-udf-python/distance-lib/distance_library.py).
 
 #### Testing the UDF
 
