@@ -11,9 +11,10 @@ Full documentation can be found on the Couchbase Developer Portal.
 <hr>
 
 ## UDF Examples
-
+We have two different types of UDFs in Couchbase, using Javascript for the Query service and using Python for the Analytics service. Here, we showcase the same UDF functionality for the two services.
 <hr>
-### Javascript UDF
+
+### Query Service UDF using Javascript
 
 Couchbase allows you to create User Defined Functions (UDF) with Javascript to include custom business logic inside your SQL++ queries while querying the data stored in Couchbase.
 
@@ -21,21 +22,21 @@ Couchbase allows you to create User Defined Functions (UDF) with Javascript to i
 
 - The Javascript [code](javascript-udf/distance.js) here can be imported directly using the `add function library` in the Couchbase Query Workbench under the UDF pane as a library.
 - The UDFs can be defined using the `add function` in the Couchbase Query Workbench under the UDF pane as a library.
-<hr>
 
 #### Testing the UDF in Couchbase
 
-> EXECUTE FUNCTION distance(51.5, 0, 38.8, -77.1)
+- `EXECUTE FUNCTION distance(51.5, 0, 38.8, -77.1)`
 
-If the UDF is defined properly, there will be an output like the one shown below:
+-  If the UDF is defined properly, there will be an output like the one shown below:
 
-```sh
-[
-  5918.185064088764
-]
-```
+    ```sh
+    [
+      5918.185064088764
+    ]
+    ```
+<hr>
 
-### Analytics UDF using Python
+### Analytics Service UDF using Python
 
 Couchbase Analytics supports creating custom User Defined Functions using Python. Here, we create a custom UDF that calculates the distance between two GPS coordinates using the [Geodesic distance](https://en.wikipedia.org/wiki/Geodesics_on_an_ellipsoid).
 
@@ -65,12 +66,13 @@ Couchbase Analytics supports creating custom User Defined Functions using Python
 
 #### Install requirements
 
-`$ pip install -r requirements.txt`
+- `$ pip install -r requirements.txt`
 
 #### Testing the UDF
 
-Run the test [code](analytics-udf/test_distance_library.py).
-`$ python test_distance_library.py`
+- Run the test [code](analytics-udf/test_distance_library.py).
+  
+  `$ python test_distance_library.py`
 
 #### Importing the UDF into Couchbase
 
