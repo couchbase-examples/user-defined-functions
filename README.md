@@ -20,7 +20,7 @@ Couchbase allows you to create User Defined Functions (UDF) with Javascript to i
 
 #### Importing the UDF in Couchbase
 
-- The Javascript [code](javascript-udf/distance.js) here can be imported directly using the `add function library` in the Couchbase Query Workbench under the UDF pane as a library.
+- The Javascript [code](javascript-udf/distance.js) can be imported directly using the `add function library` in the Couchbase Query Workbench under the UDF pane as a library.
 - The UDFs can be defined using the `add function` in the Couchbase Query Workbench under the UDF pane as a library.
 
 #### Testing the UDF in Couchbase
@@ -70,7 +70,7 @@ Couchbase Analytics supports creating custom User Defined Functions using Python
 
 #### Testing the UDF
 
-- Run the test [code](analytics-udf/test_distance_library.py).
+- Run the test [code](analytics-udf-python/distance-lib/test_distance_library.py).
   
   `$ python test_distance_library.py`
 
