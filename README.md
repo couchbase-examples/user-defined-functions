@@ -11,12 +11,14 @@ Full documentation can be found on the Couchbase Developer Portal.
 <hr>
 
 ## UDF Examples
+
 We have two different types of UDFs in Couchbase, using Javascript for the Query service and using Python for the Analytics service. Here, we showcase the same UDF functionality of calculating the distance between two GPS coordinates for the two services.
+
 <hr>
 
 ### Query Service UDF using Javascript
 
-Couchbase allows you to create User Defined Functions (UDF) with Javascript to include custom business logic inside your SQL++ queries while querying the data stored in Couchbase.  Here, we create a custom UDF that calculates the distance between two GPS coordinates using the [Haversine formula](https://en.wikipedia.org/wiki/Haversine_formula).
+Couchbase allows you to create User Defined Functions (UDF) with Javascript to include custom business logic inside your SQL++ queries while querying the data stored in Couchbase. Here, we create a custom UDF that calculates the distance between two GPS coordinates using the [Haversine formula](https://en.wikipedia.org/wiki/Haversine_formula).
 
 #### Importing the UDF in Couchbase
 
@@ -27,14 +29,15 @@ Couchbase allows you to create User Defined Functions (UDF) with Javascript to i
 
 - `EXECUTE FUNCTION distance(51.5, 0, 38.8, -77.1)`
 
--  If the UDF is defined properly, there will be an output like the one shown below:
+- If the UDF is defined properly, there will be an output like the one shown below:
 
-    ```sh
-    [
-      5918.185064088764
-    ]
-    ```
-<hr>
+  ```sh
+  [
+    5918.185064088764
+  ]
+  ```
+
+  <hr>
 
 ### Analytics Service UDF using Python
 
@@ -44,7 +47,7 @@ Couchbase Analytics supports creating custom User Defined Functions using Python
 
 - Couchbase can be run as a Docker container
 
-  > docker run -d -p 8091-8094:8091-8094 -p 11210:11210 --name db couchbase
+  > docker run -d -p 8091-8096:8091-8096 -p 11210:11210 --name db couchbase
 
 - Setting Up
 
@@ -67,21 +70,26 @@ Couchbase Analytics supports creating custom User Defined Functions using Python
 #### Install requirements
 
 - `$ pip install -r requirements.txt`
-    
+
 ### UDF Code
+
 - The UDF code is [here](analytics-udf-python/distance-lib/distance_library.py).
 
 #### Testing the UDF
 
 - Run the test [code](analytics-udf-python/distance-lib/test_distance_library.py).
-  
+
   `$ python test_distance_library.py`
 
 #### Importing the UDF into Couchbase
 
 - The Python module can be packaged including all the dependencies using shiv for any platform. We use Linux here for our container.
 
-  > $ shiv -o distance-lib.pyz --site-packages . --platform manylinux2010_x86_64 --python-version 39 --only-binary=:all: geopy
+  ```bash
+  $ cd distance-lib
+
+  $ shiv -o distance-lib.pyz --site-packages . --platform manylinux2010_x86_64 --python-version 39 --only-binary=:all: geopy
+  ```
 
 - Copy the package into the Couchbase Container
 
